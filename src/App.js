@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import axios from 'axios';
+import "bootstrap/dist/css/bootstrap.min.css";
+class App extends Component {
+  state = {
+    paises: []
+  }
+  componentDidMount() {
+    axios
+      .get("https://restcountries.eu/rest/v2/all?fields=name")
+      .then((response) => {
+        console.log(response);
+        this.setState({paises: response.data})
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <div className="form-group">
+          <select name="paises" className="form-control">
+            {this.state.paises.map(elemento => (
+              <option key={elemento.id} value={elemento.id}>{elemento.name}</option>
+            )
+            )}
+          </select>
+        </div>
+      </div>
+    );
+  }
 }
-
 export default App;
