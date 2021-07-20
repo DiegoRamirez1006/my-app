@@ -20,7 +20,7 @@ class App extends Component {
         return (
             <div>
                 <h1>Agentes del Valorant</h1>
-                <p>Esto es una api de Valorant, es un juego de accion y lo que se muestra a continuacion son los agentes que puedes elejir dentro del juego.</p>
+                <p>Esto es una api de Valorant, es un juego de acción y lo que se muestra a continuación son los agentes que puedes elegir dentro del juego.</p>
                 {this.state.Agentes.map(elemento => (
                     <>
                         <img src={elemento.displayIcon} />
