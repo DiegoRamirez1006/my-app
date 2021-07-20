@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import axios from 'axios';
+import Agentes from "./Agentes";
 import "bootstrap/dist/css/bootstrap.min.css";
 class App extends Component {
   state = {
@@ -28,6 +29,7 @@ class App extends Component {
             )
             )}
           </select>
+          <Agentes />
         </div>
       </div>
     );
