@@ -25,7 +25,7 @@ class App extends Component {
         <div className="form-group">
           <select name="paises" className="form-control">
             {this.state.paises.map(elemento => (
-              <option key={elemento.id} value={elemento.id}>{elemento.name}</option>
+              <option>{elemento.name}</option>
             )
             )}
           </select>
